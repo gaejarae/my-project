@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Project</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#2563eb;
+  --bg:#0f172a;
+  --card:#1e293b;
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --glass:rgba(255,255,255,0.05);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  color:var(--text);
+  line-height:1.6;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  backdrop-filter:blur(12px);
+  background:rgba(15,23,42,0.6);
+  z-index:1000;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--text);
+  margin-left:25px;
+  font-weight:500;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:0 10%;
+}
+
+.hero h1{
+  font-size:3.5rem;
+  font-weight:800;
+  background:linear-gradient(90deg,#60a5fa,#2563eb);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  margin-top:20px;
+  max-width:700px;
+  color:var(--muted);
+  font-size:1.2rem;
+}
+
+.btn{
+  margin-top:40px;
+  padding:14px 36px;
+  border-radius:40px;
+  text-decoration:none;
+  background:var(--primary);
+  color:white;
+  box-shadow:0 10px 30px rgba(37,99,235,0.4);
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:translateY(-5px);
+  box-shadow:0 20px 40px rgba(37,99,235,0.5);
+}
+
+/* SECTION */
+section{
+  padding:120px 8%;
+  max-width:1200px;
+  margin:auto;
+}
+
+h2{
+  font-size:2.2rem;
+  margin-bottom:40px;
+  text-align:center;
+}
+
+.card{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border-radius:24px;
+  padding:40px;
+  margin-bottom:40px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.4);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+/* ARCHITECTURE BOX */
+.arch{
+  background:linear-gradient(145deg,#1e293b,#111827);
+  padding:50px;
+  border-radius:30px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  text-align:center;
+}
+
+.arch p{
+  margin-top:20px;
+  color:var(--muted);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px;
+  color:var(--muted);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{
+    font-size:2.2rem;
+  }
+
+  section{
+    padding:80px 5%;
+  }
+
+  nav{
+    padding:20px 5%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div><strong>My Project</strong></div>
+  <div>
+    <a href="#overview">Overview</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#tech">Tech</a>
+    <a href="#result">Result</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>StockWars Multi-Agent AI Platform</h1>
+  <p>
+    Debate-based multi-agent investment decision platform deployed on AWS with Kubernetes.
+    Designed to reduce single-model bias and provide transparent reasoning.
+  </p>
+  <a href="https://github.com/yourid" class="btn">View Source</a>
+</div>
+
+<section id="overview">
+  <h2>Project Overview</h2>
+  <div class="card">
+    <p>
+      Traditional single-model investment AI systems often suffer from model bias and limited reasoning transparency.
+      This project introduces a multi-agent debate architecture where specialized agents analyze finance, news,
+      and charts independently before reaching a consensus.
+    </p>
+  </div>
+</section>
+
+<section id="architecture">
+  <h2>System Architecture</h2>
+  <div class="arch">
+    <h3>Cloud-Native Deployment</h3>
+    <p>
+      AWS EC2 (Ubuntu 24.04)  
+      Docker Containerization  
+      K3s Kubernetes Cluster  
+      Nginx Ingress  
+      ChromaDB Vector Storage  
+      FastAPI Backend  
+    </p>
+  </div>
+</section>
+
+<section id="tech">
+  <h2>Tech Stack</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Backend</h3>
+      <p>Python, FastAPI, REST API, Async Processing</p>
+    </div>
+    <div class="card">
+      <h3>Infrastructure</h3>
+      <p>AWS EC2, VPC, Security Groups, NodePort, Ingress</p>
+    </div>
+    <div class="card">
+      <h3>DevOps</h3>
+      <p>Docker, Kubernetes (K3s), CI/CD Workflow</p>
+    </div>
+  </div>
+</section>
+
+<section id="result">
+  <h2>Outcome</h2>
+  <div class="card">
+    <p>
+      Implemented a debate-based decision system that improved reasoning transparency
+      and demonstrated stronger edge-case handling compared to single-agent baseline models.
+      Successfully deployed as a production-ready cloud service.
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2026 My Project
+</footer>
+
+</body>
+</html>
